@@ -3,28 +3,12 @@ package main
 import (
 	"github.com/labstack/echo"
 	"net/http"
-
-	"github.com/rizaramadan/"
 )
 
 type Method int
 
-const (
-	GET = iota
-	POST = iota
-	PUT = iota
-	DELETE = iota
-)
 
-type Endpoint struct {
-	Url string
-	Method int
-	handler func(c echo.Context) error
-}
 
-var (
-	Endpoints []Endpoint
-)
 
 func main() {
 	e := echo.New()
