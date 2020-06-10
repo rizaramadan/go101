@@ -12,11 +12,6 @@ func main() {
 	e := echo.New()
 	hello.Init(e)
 
-
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "hello, world")
-	})
-
 	e.POST("/users", saveUser)
 	e.Logger.Fatal(e.Start(":1323"))
 
