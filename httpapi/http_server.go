@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/labstack/echo"
-	""
+	"github.com/rizaramadan/go101/httpapi/hello"
 	"net/http"
 )
 
@@ -10,7 +10,7 @@ import (
 
 func main() {
 	e := echo.New()
-	he
+	hello.Init(e)
 
 
 	e.GET("/", func(c echo.Context) error {
