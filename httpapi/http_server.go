@@ -2,31 +2,15 @@ package main
 
 import (
 	"github.com/labstack/echo"
+	""
 	"net/http"
 )
-
-type Method int
-
 
 
 
 func main() {
 	e := echo.New()
-
-	for _, elm := range Endpoints {
-		switch elm.Method {
-			case GET:
-				e.GET(elm.Url, elm.handler)
-			case POST:
-				e.POST(elm.Url, elm.handler)
-			case PUT:
-				e.PUT(elm.Url, elm.handler)
-			case DELETE:
-				e.DELETE(elm.Url, elm.handler)
-			default:
-				panic("error")
-		}
-	}
+	he
 
 
 	e.GET("/", func(c echo.Context) error {
