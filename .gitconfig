@@ -1,0 +1,4 @@
+[user]
+	email = riza.ramadan@bukalapak.com
+[url "ssh://git@github.com:"]
+	insteadOf = https://github.com
