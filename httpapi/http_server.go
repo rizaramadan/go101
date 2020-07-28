@@ -1,24 +1,29 @@
 package main
 
 import (
-	"github.com/labstack/echo"
-	"github.com/rizaramadan/go101/httpapi/hello"
+	"fmt"
+	"html"
+	"log"
 	"net/http"
 )
 
-
-
-func main() {
-	e := echo.New()
-	hello.Init(e)
-
-	e.POST("/users", saveUser)
-	e.Logger.Fatal(e.Start(":1323"))
-
-
+func home(w http.ResponseWriter, r *http.Request) {
+	_, err := fmt.Fprintf(w,"this is home, %q \n",  html.EscapeString(r.URL.Path))
+	if err != nil {
+		log.Println(err)
+	}
 }
 
-func saveUser(c echo.Context) error {
-	id := c.Param("id")
-	return c.String(http.StatusOK, id)
+func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		_, err := fmt.Fprintf(w,"hello, %q \n",  html.EscapeString(r.URL.Path))
+		if err != nil {
+			log.Println(err)
+		}
+	})
+
+	http.HandleFunc("/home", home)
+
+	log.Println("listen localhost 8989")
+	log.Fatal(http.ListenAndServe(":8989",nil))
 }
