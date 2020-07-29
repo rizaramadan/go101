@@ -5,14 +5,14 @@ import (
 )
 
 type Route struct {
-    Pattern string
-    Handler http.HandlerFunc
+	Pattern string
+	Handler http.HandlerFunc
 }
 
 func NewRoute(p string, h http.HandlerFunc) *Route {
-    return &Route{p,h}
+	return &Route{p, h}
 }
 
 func (r *Route) AddRoute() {
-    http.HandleFunc(r.Pattern, r.Handler)
+	http.HandleFunc(r.Pattern, r.Handler)
 }
