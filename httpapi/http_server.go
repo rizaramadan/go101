@@ -24,7 +24,8 @@ func main() {
 		}
 	})
 
-	web.NewRoute("/home", home)
+	route := web.NewRoute("/home", home)
+	route.AddRoute()
 
 	log.Println("listen localhost 8989")
 	log.Fatal(http.ListenAndServe(":8989", nil))
