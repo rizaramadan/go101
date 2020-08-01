@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/rizaramadan/go101"
-	"github.com/rizaramadan/go101/web"
 	"html"
 	"log"
 	"net/http"
