@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/rizaramadan/go101"
+	"github.com/rizaramadan/go101/delivery"
 	"html"
 	"log"
 	"net/http"
@@ -17,7 +18,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	route := web.NewRoute("/", home)
+	route := delivery.NewRoute("/", home)
 	route.AddRoute()
 
 	log.Println("listen localhost 8989")
