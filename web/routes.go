@@ -1,3 +1,5 @@
+//+build windows,amd64,go1.14,!cgo
+
 package web
 
 import (

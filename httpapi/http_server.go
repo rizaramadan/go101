@@ -2,29 +2,22 @@ package main
 
 import (
 	"fmt"
+	"github.com/rizaramadan/go101/web"
 	"html"
 	"log"
 	"net/http"
-
-	"github.com/rizaramadan/go101/web"
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
-	_, err := fmt.Fprintf(w, "this is home, %q \n", html.EscapeString(r.URL.Path))
+	_, err := fmt.Fprintf(w, "this is home, %q \n",
+		html.EscapeString(r.URL.Path))
 	if err != nil {
 		log.Println(err)
 	}
 }
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		_, err := fmt.Fprintf(w, "hello, %q \n", html.EscapeString(r.URL.Path))
-		if err != nil {
-			log.Println(err)
-		}
-	})
-
-	route := web.NewRoute("/home", home)
+	route := web.NewRoute("/", home)
 	route.AddRoute()
 
 	log.Println("listen localhost 8989")
